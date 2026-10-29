@@ -12,8 +12,9 @@ A página é uma mesa de trabalho vista de cima: uma base de corte verde-musgo c
 | Polaroids | Lisboa em 9 fotos |
 | Bilhete de elétrico | Séries e formatos de conteúdo |
 | Carta de tarô | Como funciona o veredito (aprovado, depende ou passo) |
-| Postal | Ranking dos meus bares e pizzarias favoritos de Lisboa |
+| Postal | Meus favoritos de Lisboa: bares, pizzas, pastel de nata e açaí |
 | Cartão de visita | Contato |
+| Bilhetes | O que dizem de mim: elogios e críticas de quem me conhece |
 | Livro preto (Guia de Lisboa) | 44 lugares com nota, carimbo, mapa de zonas e busca, além das feiras e mercados da cidade |
 | Passaporte | 8 destinos de 2018, incluindo Dublin, onde morei, com mapas ilustrados, paradas, anotações, feiras e dicas para estudante |
 
@@ -23,6 +24,7 @@ A página é uma mesa de trabalho vista de cima: uma base de corte verde-musgo c
 - **Guia de Lisboa filtrável** por tema (comer, Lisboa, por aí), por zona no mapa e por busca de texto.
 - **Mapas de viagem desenhados com coordenadas reais**: a latitude e a longitude de cada parada são projetadas em SVG, com rios, parques, ruas, escala e norte. Os rótulos dos pontos se reposicionam sozinhos pra não ficarem uns por cima dos outros.
 - **Links diretos** para cada janela e cada viagem (`#contato`, `#grimorio`, `#praga`, `#edimburgo`…), pra usar na figurinha de link dos stories.
+- **Botão "voltar pra mesa"** fixo no celular, pra fechar qualquer janela com um toque.
 - **Acessibilidade**: tudo funciona pelo teclado (Tab, Enter e Esc), os elementos têm rótulos para leitores de tela e as animações são desligadas para quem prefere menos movimento.
 
 ## Como foi feito
