@@ -12,10 +12,10 @@ A página é uma mesa de trabalho vista de cima: uma base de corte verde-musgo c
 | Polaroids | Lisboa em 9 fotos |
 | Bilhete de elétrico | Séries e formatos de conteúdo |
 | Carta de tarô | Como funciona o veredito (aprovado, depende ou passo) |
-| Postal | Ranking dos meus bares favoritos de Lisboa |
+| Postal | Ranking dos meus bares e pizzarias favoritos de Lisboa |
 | Cartão de visita | Contato |
-| Livro preto (Guia de Lisboa) | 44 lugares com nota, carimbo, mapa de zonas e busca |
-| Passaporte | 6 viagens de 2018 com mapas ilustrados, paradas, anotações e feiras |
+| Livro preto (Guia de Lisboa) | 44 lugares com nota, carimbo, mapa de zonas e busca, além das feiras e mercados da cidade |
+| Passaporte | 8 destinos de 2018, incluindo Dublin, onde morei, com mapas ilustrados, paradas, anotações, feiras e dicas para estudante |
 
 ## Funcionalidades
 
@@ -47,4 +47,4 @@ Contato: contato.nandamto@gmail.com
 
 ### English summary
 
-*Grimório de bolso da Nanda* ("Nanda's pocket grimoire") is a hand-crafted portfolio and Lisbon guide, built as an interactive desk where each object opens a window. It is plain HTML, CSS and JavaScript with no frameworks. It includes a filterable guide to 44 Lisbon places, a photo gallery, and illustrated maps of six 2018 trips drawn from real coordinates, and it works fully from the keyboard. It was built with AI assistance (Claude) under my creative direction, as part of my transition from advertising and content creation into tech.
+*Grimório de bolso da Nanda* ("Nanda's pocket grimoire") is a hand-crafted portfolio and Lisbon guide, built as an interactive desk where each object opens a window. It is plain HTML, CSS and JavaScript with no frameworks. It includes a filterable guide to 44 Lisbon places, a photo gallery, and illustrated maps of eight 2018 destinations drawn from real coordinates, and it works fully from the keyboard. It was built with AI assistance (Claude) under my creative direction, as part of my transition from advertising and content creation into tech.
