@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="description" content="Grimório de bolso da Nanda: guia de Lisboa com critério, roteiros de viagem e contato de @nandamto.">
 <title>Grimório de bolso da Nanda</title>
+<meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600;1,6..72,800&family=Reenie+Beanie&family=Pirata+One&display=swap">
 <style>
@@ -346,6 +347,15 @@ body{
 .bilhetes .pi2{left:52px;top:50px;background:#D9A9A2;transform:rotate(5deg)}
 .bilhetes:hover .pi1{transform:rotate(-10deg) translateY(-4px)}
 .bilhetes:hover .pi2{transform:rotate(8deg) translateY(-4px)}
+
+.fb{margin-top:18px;padding:16px 18px;background:var(--paper-2);border:1px dashed var(--ink-soft);border-radius:4px;display:flex;flex-direction:column;gap:10px}
+.fb label{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);display:flex;flex-direction:column;gap:5px}
+.fb input[type=text],.fb textarea{font:inherit;font-family:var(--f-serif,inherit);font-size:16px;letter-spacing:0;text-transform:none;color:var(--ink);background:#fffdf7;border:1px solid var(--ink-soft);border-radius:3px;padding:9px 10px;width:100%;box-sizing:border-box}
+.fb textarea{min-height:84px;resize:vertical}
+.fb .ok{display:flex;flex-direction:row;align-items:center;gap:8px;text-transform:none;letter-spacing:0;font-size:13px}
+.fb button[type=submit]{align-self:flex-start;font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--ink);background:var(--ink);color:var(--paper-2);padding:9px 16px;border-radius:999px;cursor:pointer}
+.fb .msg{font-size:14px;margin:0}
+.fb .hp{position:absolute;left:-9999px;opacity:0}
 .refs{display:flex;flex-direction:column;gap:12px;margin:6px 0 4px}
 .refs blockquote{margin:0;padding:14px 18px;background:var(--paper-2);border-left:3px solid var(--terracota);border-radius:3px}
 .refs blockquote p{font-family:var(--f-hand);font-size:30px;line-height:1.05;margin:0 0 6px;color:var(--ink)}
@@ -444,7 +454,6 @@ body{
 </style>
 </head>
 <body>
-
 
 <div class="top"><span><b>nandamto</b> · turista onde mora</span><span>Lisboa (e outros) ✧ clique nos objetos</span></div>
 <div class="ruler" aria-hidden="true"><span>0</span><span>5</span><span>10</span><span>15</span><span>20</span><span>25</span><span>30</span><span>35</span><span>40</span><span>45</span></div>
@@ -660,6 +669,15 @@ body{
       <div class="crow"><div><div class="l">tiktok</div><div class="val"><a href="https://www.tiktok.com/@nanda.mto" target="_blank" rel="noopener">@nanda.mto</a></div></div></div>
       <div class="crow"><div><div class="l">youtube</div><div class="val"><a href="https://www.youtube.com/@nandamto" target="_blank" rel="noopener">@nandamto</a></div></div></div>
     </div>
+    <form class="fb" data-aba="Indicações" novalidate>
+      <p class="eyebrow">deixe uma indicação</p>
+      <label>seu nome (opcional)<input type="text" name="nome" maxlength="60" autocomplete="off"></label>
+      <label>lugar, livro ou produto<input type="text" name="indicacao" maxlength="120" required></label>
+      <label>onde fica e por que vale a pena<textarea name="detalhe" maxlength="600"></textarea></label>
+      <input class="hp" type="text" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button type="submit">enviar indicação</button>
+      <p class="msg" role="status" aria-live="polite"></p>
+    </form>
   </div>
 </section>
 
@@ -808,8 +826,16 @@ body{
       <blockquote><p>Sommelier de batata frita</p><cite>quem divide a porção comigo</cite></blockquote>
       <blockquote><p>A eterna luta contra a intolerância a lactose</p><cite>quem me viu pedir pizza mesmo assim</cite></blockquote>
     </div>
-    <p class="eyebrow">quer deixar a sua?</p>
-    <p>Manda pelo <button class="link-inline" data-open="contato">cartão de contato</button> que eu coloco aqui.</p>
+    <form class="fb" data-aba="O que dizem de mim" novalidate>
+      <p class="eyebrow">quer deixar a sua?</p>
+      <label>seu nome (opcional)<input type="text" name="nome" maxlength="60" autocomplete="off"></label>
+      <label>o que você tem a dizer sobre mim<textarea name="frase" maxlength="400" required></textarea></label>
+      <label>como a gente se conhece (opcional)<input type="text" name="relacao" maxlength="80"></label>
+      <label class="ok"><input type="checkbox" name="publicar"> pode colocar aqui no site</label>
+      <input class="hp" type="text" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button type="submit">enviar</button>
+      <p class="msg" role="status" aria-live="polite"></p>
+    </form>
   </div>
 </section>
 
@@ -1663,6 +1689,35 @@ const PLACES = [
     }
   }
   addEventListener('hashchange', fromHash); fromHash();
+})();
+
+/* formulários -> planilha (Apps Script). Cole a URL do web app entre aspas. */
+var FORM_URL='https://script.google.com/macros/s/AKfycbyOMp6jDDKMNDCxabROY-KWINja9ZnGNMV-ladmqpzzmZOHvNoPxFDeb0_mR5McX2uo/exec';
+(function(){
+  var MAIL='contato.nandamto@gmail.com';
+  document.querySelectorAll('form.fb').forEach(function(f){
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var m=f.querySelector('.msg'), d={aba:f.getAttribute('data-aba')};
+      if(f.site.value) return;
+      Array.prototype.forEach.call(f.elements,function(el){
+        if(!el.name||el.name==='site') return;
+        d[el.name]= el.type==='checkbox' ? (el.checked?'sim':'não') : el.value.trim();
+      });
+      var main=d.indicacao!==undefined?d.indicacao:d.frase;
+      if(!main){ m.textContent='Preenche o campo principal antes de enviar ✧'; return; }
+      if(FORM_URL){
+        m.textContent='enviando...';
+        fetch(FORM_URL,{method:'POST',mode:'no-cors',body:JSON.stringify(d)})
+          .then(function(){ f.reset(); m.textContent='Recebido, obrigada! ✧'; })
+          .catch(function(){ m.textContent='Não consegui enviar agora. Tenta de novo daqui a pouco.'; });
+      } else {
+        var corpo=Object.keys(d).filter(function(k){return k!=='aba'&&d[k]}).map(function(k){return k+': '+d[k]}).join('\n');
+        location.href='mailto:'+MAIL+'?subject='+encodeURIComponent(d.aba)+'&body='+encodeURIComponent(corpo);
+        m.textContent='Abri o seu e-mail com a mensagem pronta. É só enviar ✧';
+      }
+    });
+  });
 })();
 </script>
 
