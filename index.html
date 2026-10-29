@@ -743,6 +743,7 @@ body{
 </section>
 
 <script>
+function setHash(a,b,u){ try { history.replaceState(a,b,u); } catch(e){} }
 const PLACES = [
     {nome:"Arco da Rua Augusta", categoria:"ir", estilo:"consultar valores", estrelas:5, v:"Vista linda", nota:"Super turístico e um dos cartões-postais de Lisboa.", contexto:"O arco triunfal que abre a Baixa para a Praça do Comércio.", endereco:"R. Augusta 2, 1100-053 Lisboa", zona:4},
     {nome:"Praia das Azenhas do Mar", categoria:"ir", estilo:"praia", estrelas:5, v:"Vista linda", nota:"O ideal é ir de carro.", contexto:"Vila de casinhas brancas pendurada na falésia, com piscina natural na maré baixa.", endereco:"Azenhas do Mar, Colares (Sintra)", zona:12},
@@ -1390,7 +1391,7 @@ const PLACES = [
     const b = e.target.closest('.destino');
     if (!b) return;
     mostrarDestino(b.dataset.destino);
-    history.replaceState(null, '', '#' + b.dataset.destino);
+    setHash(null, '', '#' + b.dataset.destino);
   });
   window.grimDestino = mostrarDestino;
   window.grimViagens = VIAGENS.map(c => c.id);
@@ -1414,12 +1415,12 @@ const PLACES = [
     var w = document.getElementById('w-' + name); if (!w) return;
     w.hidden = false; w.style.zIndex = ++z; place(w, src);
     var b = w.querySelector('[data-close]'); if (b) b.focus({preventScroll:true});
-    if (location.hash !== '#' + name) history.replaceState(null, '', '#' + name);
+    if (location.hash !== '#' + name) setHash(null, '', '#' + name);
   }
   function close(w){
     w.hidden = true;
     var open = document.querySelectorAll('.win:not([hidden])');
-    if (!open.length && location.hash) history.replaceState(null, '', location.pathname + location.search);
+    if (!open.length && location.hash) setHash(null, '', location.pathname + location.search);
   }
   document.querySelectorAll('[data-open]').forEach(function(btn){
     btn.addEventListener('click', function(){ open(btn.dataset.open, btn); });
@@ -1469,7 +1470,7 @@ const PLACES = [
     } else if (window.grimViagens && window.grimViagens.indexOf(n) > -1){
       window.grimDestino(n);
       open('viagens', document.querySelector('.desk [data-open="viagens"]'));
-      history.replaceState(null, '', '#' + n);
+      setHash(null, '', '#' + n);
     }
   }
   addEventListener('hashchange', fromHash); fromHash();
