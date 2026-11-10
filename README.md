@@ -30,7 +30,7 @@ A página é uma mesa de trabalho vista de cima: uma base de corte verde-musgo c
 ## Como foi feito
 
 - HTML, CSS e JavaScript puros, **sem frameworks nem bibliotecas**.
-- Um único arquivo `index.html`, com as fotos otimizadas e embutidas, sem dependências externas além das fontes.
+- Um arquivo `index.html` com as fotos em WebP na pasta `img/`, carregadas sob demanda, sem dependências externas além das fontes.
 - Tipografia: Newsreader, DM Mono, Reenie Beanie e Pirata One (Google Fonts).
 - Hospedagem: GitHub Pages.
 - Construído em parceria com IA (Claude, da Anthropic). A direção criativa, a identidade visual, a curadoria dos lugares, as fotos e todas as opiniões são minhas; a IA ajudou a transformar isso em código.
